@@ -44,7 +44,7 @@ class DataDisp {
 	@BeforeProcess
 	public static void beforeProcess() {
 		test = new GTest(1, "10.1.3.152")
-		VTimer.timerStart()
+		VTimer.keyWorkTimer()
 		new TCPDataClient(host, port).TcpConnect()
 	}
 
@@ -70,7 +70,7 @@ class DataDisp {
 	@RunRate(50)
 	@Test
 	public void test2() {
-		TCPDataClient.sendDevOneData()
+		TCPDataClient.sendDevSedimentOneData()
 		//tcp通信校验
 		await().atMost(5000, MILLISECONDS).until { TCPDataClientHandler.getchannelRead() == "(ok)"}
 		//Thread.sleep(60000)

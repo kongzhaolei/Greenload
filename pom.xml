@@ -12,151 +12,182 @@
 
 	<repositories>
 		<repository>
-			<id>kettle</id>
-            <name>kettle repo</name>
-            <url>http://10.200.50.136:8081/repository/kettle/</url>
+			<id>maven central</id>
+			<name>maven2</name>
+			<url>https://repo.maven.apache.org/maven2</url>
 		</repository>
-		    <repository>
+		<repository>
 			<id>treenewbee</id>
-            <name>treenewbee repo</name>
-            <url>http://10.200.50.136:8081/repository/treenewbee/</url>
+			<name>treenewbee repo</name>
+			<url>http://10.200.50.136:8081/repository/treenewbee/</url>
+		</repository>
+		<repository>
+			<id>ngrinder.maven.repo</id>
+			<url>https://github.com/naver/ngrinder/raw/ngrinder.maven.repo/releases</url>
 		</repository>
 	</repositories>
+	<pluginRepositories>
+			<pluginRepository>
+			<id>treenewbee</id>
+			<name>treenewbee</name>
+			<url>http://10.200.50.136:8081/repository/treenewbee/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>maven central</id>
+			<name>Maven</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.ngrinder</groupId>
 			<artifactId>ngrinder-groovy</artifactId>
 			<version>3.4</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-backports-compat23</artifactId>
+			<version>2.4.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.jxls</groupId>
+			<artifactId>jxls-core</artifactId>
+			<version>1.0.2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>commons-beanutils</groupId>
+					<artifactId>commons-beanutils</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>commons-collections</groupId>
+					<artifactId>commons-collections</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>commons-digester</groupId>
+					<artifactId>commons-digester</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-jexl</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-backports-compat23</artifactId>
-            <version>2.4.5</version>
-        </dependency>	
-        	        
-        <dependency>
-            <groupId>net.sf.jxls</groupId>
-            <artifactId>jxls-core</artifactId>
-            <version>1.0.2</version>
-            <exclusions>
-            	<exclusion>
-            		<groupId>commons-logging</groupId>
-            		<artifactId>commons-logging</artifactId>
-            	</exclusion>
-            	<exclusion>
-            		<groupId>commons-beanutils</groupId>
-            		<artifactId>commons-beanutils</artifactId>
-            	</exclusion>
-            	<exclusion>
-            		<groupId>commons-collections</groupId>
-            		<artifactId>commons-collections</artifactId>
-            	</exclusion>
-            	<exclusion>
-            		<groupId>commons-digester</groupId>
-            		<artifactId>commons-digester</artifactId>
-            	</exclusion>
-            	<exclusion>
-            		<groupId>org.apache.commons</groupId>
-            		<artifactId>commons-jexl</artifactId>
-            	</exclusion>
-            	<exclusion>
-            		<groupId>org.apache.poi</groupId>
-            		<artifactId>poi-ooxml</artifactId>
-            	</exclusion>
-            	<exclusion>
-            		<groupId>org.apache.poi</groupId>
-            		<artifactId>poi</artifactId>
-            	</exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.3.6</version>
-            <exclusions>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.6</version>
+			<exclusions>
 				<exclusion>
 					<groupId>commons-codec</groupId>
 					<artifactId>commons-codec</artifactId>
 				</exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>3.7</version>
-            <exclusions>
-            	<exclusion>
-            		<groupId>dom4j</groupId>
-            		<artifactId>dom4j</artifactId>
-            	</exclusion>
-            	<exclusion>
-            		<groupId>org.apache.poi</groupId>
-            		<artifactId>poi-ooxml-schemas</artifactId>
-            	</exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-                <groupId>org.apache.xmlbeans</groupId>
-                <artifactId>xmlbeans</artifactId>
-                <version>2.6.0</version>
-                <exclusions>
-                	<exclusion>
-                		<groupId>stax</groupId>
-                		<artifactId>stax-api</artifactId>
-                	</exclusion>
-                </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>3.6.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-db</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.1.6.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.4.1</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.ucanaccess</groupId>
-            <artifactId>ucanaccess</artifactId>
-            <version>3.0.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.xerial</groupId>
-            <artifactId>sqlite-jdbc</artifactId>
-            <version>3.20.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.awaitility</groupId>
-            <artifactId>awaitility-groovy</artifactId>
-            <version>3.0.0</version>
-        </dependency>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.7</version>
+			<exclusions>
+				<exclusion>
+					<groupId>dom4j</groupId>
+					<artifactId>dom4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>poi-ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>2.6.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>stax</groupId>
+					<artifactId>stax-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.6.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-db</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.6.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ucanaccess</groupId>
+			<artifactId>ucanaccess</artifactId>
+			<version>3.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>3.20.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility-groovy</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 		<dependency>
 			<groupId>my_lib</groupId>
 			<artifactId>greenflower</artifactId>
 			<version>1.1</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/</systemPath>
+			<systemPath>${project.basedir}/lib/GreenFlower.jar</systemPath>
 		</dependency>
 	</dependencies>
 
